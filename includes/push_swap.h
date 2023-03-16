@@ -17,7 +17,9 @@ struct s_stack
 
 void	print_stack(t_stack *stack);
 void	print_error(char *str, t_stack *stack);
+int		not_number(char **tab, int i);
 int		tab_len(char **tab);
+int		ft_atoi2(const char *str, t_stack *stack);
 void	free_tab(char **tab);
 void	free_stack(t_stack *stack);
 void	put_index(t_stack *stack);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_stack.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cortiz <cortiz@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/16 09:21:10 by cortiz            #+#    #+#             */
+/*   Updated: 2023/03/16 12:28:39 by cortiz           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	is_stack_sorted(t_stack *stack)
@@ -50,7 +62,7 @@ int	not_number(char **tab, int i)
 		j = 0;
 		while (tab[i][j])
 		{
-			if (tab[i][j] >= 'a' && tab[i][j] <= 'z')
+			if (!ft_isdigit(tab[i][j]) && tab[i][j] != '-' && tab[i][j] != '+')
 				return (1);
 			j++;
 		}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carlosortiz <carlosortiz@student.42.fr>    +#+  +:+       +#+        */
+/*   By: cortiz <cortiz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 08:23:05 by cortiz            #+#    #+#             */
-/*   Updated: 2023/03/15 21:58:05 by carlosortiz      ###   ########.fr       */
+/*   Created: 2023/03/16 09:21:04 by cortiz            #+#    #+#             */
+/*   Updated: 2023/03/16 12:40:21 by cortiz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,19 @@ int	main(int ac, char **av)
 	if (ac == 2)
 	{
 		tab = ft_split(av[1], ' ');
+		if (not_number(tab, 0))
+		{
+			free_tab(tab);
+			print_error("Error", NULL);
+		}
 		stack = create_stack(stack, 0, tab);
-		if (check_error(stack, tab, 0))
-			print_error("Error", stack);
 		free_tab(tab);
 	}
 	else
 	{
+		if (not_number(av, 1))
+			print_error("Error", NULL);
 		stack = create_stack(stack, 1, av);
-		if (check_error(stack, av, 1))
-			print_error("Error", stack);
 	}
 	sort(get_stack_len(stack), &stack, &stackb);
 	free(stack);

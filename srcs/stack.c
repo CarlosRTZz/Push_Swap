@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cortiz <cortiz@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/16 09:21:43 by cortiz            #+#    #+#             */
+/*   Updated: 2023/03/16 12:36:58 by cortiz           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	put_index(t_stack *stack)
@@ -36,7 +48,7 @@ t_stack	*add_stack(t_stack *stack, char *c)
 	tmp = malloc(sizeof(t_stack));
 	if (tmp)
 	{
-		tmp->i = ft_atoi(c);
+		tmp->i = ft_atoi2(c, stack);
 		tmp->next = stack;
 	}
 	return (tmp);
