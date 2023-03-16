@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cortiz <cortiz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: carlosortiz <carlosortiz@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 09:21:49 by cortiz            #+#    #+#             */
-/*   Updated: 2023/03/16 14:17:10 by cortiz           ###   ########.fr       */
+/*   Updated: 2023/03/16 19:49:03 by carlosortiz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	free_stack(t_stack *stack)
 	}
 }
 
-int	ft_atoi2(const char *str, t_stack *stack)
+int	ft_atoi2(const char *str, t_stack *stack, char **tab)
 {
 	long long	nb;
 	long		sign;
@@ -70,8 +70,6 @@ int	ft_atoi2(const char *str, t_stack *stack)
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{
-		if (!ft_isdigit(str[i + 1]))
-			print_error("Error", stack, tab);
 		if (str[i++] == '-')
 			sign = -1;
 	}
@@ -81,7 +79,9 @@ int	ft_atoi2(const char *str, t_stack *stack)
 	{
 		nb = nb * 10 + str[i++] - '0';
 		if (nb * sign > INT_MAX || nb * sign < INT_MIN)
-			print_error("Error", stack, NULL);
+			print_error("Error", stack, tab);
 	}
+	if ((int)ft_strlen(str) != i || str[i] == '-' || str[i] == '+')
+		print_error("Error", stack, tab);
 	return ((int)(nb * sign));
 }

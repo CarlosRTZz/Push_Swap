@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cortiz <cortiz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: carlosortiz <carlosortiz@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:54:34 by cortiz            #+#    #+#             */
-/*   Updated: 2023/03/16 14:14:50 by cortiz           ###   ########.fr       */
+/*   Updated: 2023/03/16 18:50:03 by carlosortiz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,16 @@ struct s_stack
 };
 
 void	print_stack(t_stack *stack);
+int		has_double(t_stack *stack);
 void	print_error(char *str, t_stack *stack, char **tab);
 int		not_number(char **tab, int i);
 int		tab_len(char **tab);
-int		ft_atoi2(const char *str, t_stack *stack);
+int		ft_atoi2(const char *str, t_stack *stack, char **tab);
 void	free_tab(char **tab);
 void	free_stack(t_stack *stack);
 void	put_index(t_stack *stack);
-t_stack	*add_stack(t_stack *stack, char *c);
-t_stack	*create_stack(t_stack *stack, int j, char **av);
+t_stack	*add_stack(t_stack *stack, char *c, char **tab);
+t_stack	*create_stack(t_stack *stack, int j, char **av, char **tab);
 t_stack	*get_bottom_stack(t_stack *stack);
 t_stack	*get_before_bottom_stack(t_stack *stack);
 int		is_stack_sorted(t_stack *stack);

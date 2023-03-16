@@ -8,13 +8,16 @@ INC_DIR = -I includes
 SRCS_DIR = srcs
 OBJS_DIR = objs
 
-SRCS =	main.c			\
-		utils.c			\
-		utils2.c		\
-		check_stack.c	\
-		sort.c			\
-		instructions.c	\
-		stack.c			\
+SRCS =	main.c							\
+		utils.c							\
+		utils2.c						\
+		check_stack.c					\
+		sort.c							\
+		instructions/push.c				\
+		instructions/reverse_rotate.c	\
+		instructions/rotate.c			\
+		instructions/swap.c				\
+		stack.c							\
 
 OBJS = $(addprefix ${OBJS_DIR}/, ${SRCS:%.c=%.o})
 
