@@ -3,14 +3,57 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cortiz <cortiz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: carlosortiz <carlosortiz@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 08:23:05 by cortiz            #+#    #+#             */
-/*   Updated: 2023/03/07 08:37:28 by cortiz           ###   ########.fr       */
+/*   Updated: 2023/03/15 21:58:05 by carlosortiz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
+void	sort(int len, t_stack **stack_a, t_stack **stack_b)
+{
+	if (is_stack_sorted(*stack_a))
+		return ;
+	put_index(*stack_a);
+	if (len == 2)
+		sort_two(stack_a);
+	else if (len == 3)
+		sort_three(stack_a);
+	else if (len == 4)
+		sort_four(stack_a, stack_b);
+	else if (len == 5)
+		sort_five(stack_a, stack_b);
+	else
+		sort_all(stack_a, stack_b);
+}
+
 int	main(int ac, char **av)
 {
-	
+	t_stack	*stack;
+	t_stack	*stackb;
+	char	**tab;
+
+	stack = NULL;
+	stackb = NULL;
+	if (ac == 1)
+		return (1);
+	if (ac == 2)
+	{
+		tab = ft_split(av[1], ' ');
+		stack = create_stack(stack, 0, tab);
+		if (check_error(stack, tab, 0))
+			print_error("Error", stack);
+		free_tab(tab);
+	}
+	else
+	{
+		stack = create_stack(stack, 1, av);
+		if (check_error(stack, av, 1))
+			print_error("Error", stack);
+	}
+	sort(get_stack_len(stack), &stack, &stackb);
+	free(stack);
+	exit(0);
 }
