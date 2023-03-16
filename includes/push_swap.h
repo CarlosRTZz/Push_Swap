@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cortiz <cortiz@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/16 13:54:34 by cortiz            #+#    #+#             */
+/*   Updated: 2023/03/16 14:14:50 by cortiz           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -16,7 +28,7 @@ struct s_stack
 };
 
 void	print_stack(t_stack *stack);
-void	print_error(char *str, t_stack *stack);
+void	print_error(char *str, t_stack *stack, char **tab);
 int		not_number(char **tab, int i);
 int		tab_len(char **tab);
 int		ft_atoi2(const char *str, t_stack *stack);
@@ -28,7 +40,7 @@ t_stack	*create_stack(t_stack *stack, int j, char **av);
 t_stack	*get_bottom_stack(t_stack *stack);
 t_stack	*get_before_bottom_stack(t_stack *stack);
 int		is_stack_sorted(t_stack *stack);
-int	check_error(t_stack *stack, char **tab, int i);
+int		check_error(t_stack *stack, char **tab, int i);
 int		get_smallest(t_stack *stack);
 int		get_biggest(t_stack *stack);
 int		get_stack_len(t_stack *stack);

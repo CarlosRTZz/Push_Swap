@@ -6,16 +6,18 @@
 /*   By: cortiz <cortiz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 09:21:49 by cortiz            #+#    #+#             */
-/*   Updated: 2023/03/16 12:34:25 by cortiz           ###   ########.fr       */
+/*   Updated: 2023/03/16 14:17:10 by cortiz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_error(char *str, t_stack *stack)
+void	print_error(char *str, t_stack *stack, char **tab)
 {
-	if (stack)	
+	if (stack)
 		free_stack(stack);
+	if (tab)
+		free_tab(tab);
 	ft_putendl_fd(str, 1);
 	exit(1);
 }
@@ -60,24 +62,26 @@ int	ft_atoi2(const char *str, t_stack *stack)
 	long long	nb;
 	long		sign;
 	int			i;
-	int			cpt;
 
-	cpt = 1;
 	nb = 0;
 	sign = 1;
 	i = 0;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 		i++;
 	if (str[i] == '+' || str[i] == '-')
+	{
+		if (!ft_isdigit(str[i + 1]))
+			print_error("Error", stack, tab);
 		if (str[i++] == '-')
 			sign = -1;
+	}
 	while (str[i] == '0')
 		i++;
 	while (ft_isdigit(str[i]))
 	{
 		nb = nb * 10 + str[i++] - '0';
-		if (nb > INT_MAX || nb < INT_MIN)
-			print_error("Error", stack);
+		if (nb * sign > INT_MAX || nb * sign < INT_MIN)
+			print_error("Error", stack, NULL);
 	}
 	return ((int)(nb * sign));
 }

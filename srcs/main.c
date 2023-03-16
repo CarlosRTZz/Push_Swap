@@ -6,7 +6,7 @@
 /*   By: cortiz <cortiz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 09:21:04 by cortiz            #+#    #+#             */
-/*   Updated: 2023/03/16 12:40:21 by cortiz           ###   ########.fr       */
+/*   Updated: 2023/03/16 14:16:04 by cortiz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,14 @@ int	main(int ac, char **av)
 	{
 		tab = ft_split(av[1], ' ');
 		if (not_number(tab, 0))
-		{
-			free_tab(tab);
-			print_error("Error", NULL);
-		}
+			print_error("Error", NULL, tab);
 		stack = create_stack(stack, 0, tab);
 		free_tab(tab);
 	}
 	else
 	{
 		if (not_number(av, 1))
-			print_error("Error", NULL);
+			print_error("Error", NULL, NULL);
 		stack = create_stack(stack, 1, av);
 	}
 	sort(get_stack_len(stack), &stack, &stackb);
