@@ -6,7 +6,7 @@
 /*   By: cortiz <cortiz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 09:21:39 by cortiz            #+#    #+#             */
-/*   Updated: 2023/03/16 09:21:41 by cortiz           ###   ########.fr       */
+/*   Updated: 2023/03/17 10:22:16 by cortiz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,17 @@ void	sort_three(t_stack **stack_a)
 void	sort_four(t_stack **stack_a, t_stack **stack_b)
 {
 	int		smallest;
+	int		i;
 
-	smallest = get_smallest(*stack_a);
+	i = 1;
+	smallest = get_smallest(*stack_a, &i);
 	while ((*stack_a)->i > smallest)
-		ra(stack_a);
+	{
+		if (i < 3)
+			ra(stack_a);
+		else
+			rra(stack_a);
+	}
 	pb(stack_a, stack_b);
 	sort_three(stack_a);
 	pa(stack_a, stack_b);
@@ -60,10 +67,17 @@ void	sort_four(t_stack **stack_a, t_stack **stack_b)
 void	sort_five(t_stack **stack_a, t_stack **stack_b)
 {
 	int	smallest;
+	int	i;
 
-	smallest = get_smallest(*stack_a);
+	i = 1;
+	smallest = get_smallest(*stack_a, &i);
 	while ((*stack_a)->i > smallest)
-		ra(stack_a);
+	{
+		if (i < 3)
+			ra(stack_a);
+		else
+			rra(stack_a);
+	}
 	pb(stack_a, stack_b);
 	sort_four(stack_a, stack_b);
 	pa(stack_a, stack_b);

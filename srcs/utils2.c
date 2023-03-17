@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carlosortiz <carlosortiz@student.42.fr>    +#+  +:+       +#+        */
+/*   By: cortiz <cortiz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 09:21:49 by cortiz            #+#    #+#             */
-/*   Updated: 2023/03/16 19:49:03 by carlosortiz      ###   ########.fr       */
+/*   Updated: 2023/03/17 09:42:17 by cortiz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,18 +45,6 @@ void	free_tab(char **tab)
 	free(tab);
 }
 
-void	free_stack(t_stack *stack)
-{
-	t_stack	*tmp;
-
-	while (stack)
-	{
-		tmp = stack;
-		stack = stack->next;
-		free(tmp);
-	}
-}
-
 int	ft_atoi2(const char *str, t_stack *stack, char **tab)
 {
 	long long	nb;
@@ -68,11 +56,11 @@ int	ft_atoi2(const char *str, t_stack *stack, char **tab)
 	i = 0;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 		i++;
+	if ((str[i] == '-' || str[i] == '+') && str[i + 1] == 0)
+		print_error("Error", stack, tab);
 	if (str[i] == '+' || str[i] == '-')
-	{
 		if (str[i++] == '-')
 			sign = -1;
-	}
 	while (str[i] == '0')
 		i++;
 	while (ft_isdigit(str[i]))

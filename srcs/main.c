@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carlosortiz <carlosortiz@student.42.fr>    +#+  +:+       +#+        */
+/*   By: cortiz <cortiz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 09:21:04 by cortiz            #+#    #+#             */
-/*   Updated: 2023/03/16 19:56:54 by carlosortiz      ###   ########.fr       */
+/*   Updated: 2023/03/17 10:23:59 by cortiz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ int	main(int ac, char **av)
 		stack = create_stack(stack, 1, av, NULL);
 	}
 	sort(get_stack_len(stack), &stack, &stackb);
-	free(stack);
+	free_stack(stack);
 	exit(0);
 }

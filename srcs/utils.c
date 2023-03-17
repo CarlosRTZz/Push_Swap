@@ -6,7 +6,7 @@
 /*   By: cortiz <cortiz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 09:21:46 by cortiz            #+#    #+#             */
-/*   Updated: 2023/03/16 09:21:47 by cortiz           ###   ########.fr       */
+/*   Updated: 2023/03/17 10:10:24 by cortiz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_stack	*get_before_bottom_stack(t_stack *stack)
 	return (stack);
 }
 
-int	get_smallest(t_stack *stack)
+int	get_smallest(t_stack *stack, int *i)
 {
 	t_stack	*tmp;
 
@@ -35,7 +35,10 @@ int	get_smallest(t_stack *stack)
 	while (stack)
 	{
 		if (tmp->i > stack->i)
+		{
+			*i += 1;
 			tmp = stack;
+		}
 		stack = stack->next;
 	}
 	return (tmp->i);

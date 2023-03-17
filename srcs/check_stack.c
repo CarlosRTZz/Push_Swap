@@ -6,7 +6,7 @@
 /*   By: cortiz <cortiz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 09:21:10 by cortiz            #+#    #+#             */
-/*   Updated: 2023/03/16 12:28:39 by cortiz           ###   ########.fr       */
+/*   Updated: 2023/03/17 08:39:02 by cortiz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	is_stack_sorted(t_stack *stack)
 {
 	int	prev;
 
+	if (!stack)
+		print_error("Error", stack, NULL);
 	prev = stack->i;
 	stack = stack->next;
 	while (stack)
