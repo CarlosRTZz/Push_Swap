@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cortiz <cortiz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: carlosortiz <carlosortiz@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 09:21:49 by cortiz            #+#    #+#             */
-/*   Updated: 2023/03/17 09:42:17 by cortiz           ###   ########.fr       */
+/*   Updated: 2023/03/17 19:09:47 by carlosortiz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	print_error(char *str, t_stack *stack, char **tab)
 		free_stack(stack);
 	if (tab)
 		free_tab(tab);
-	ft_putendl_fd(str, 1);
+	ft_putendl_fd(str, 2);
 	exit(1);
 }
 
